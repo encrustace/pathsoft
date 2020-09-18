@@ -20,7 +20,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Widget home = WaitWidget();
-
   Future<void> checkInit() async {
     var databasePath = await getDatabasesPath();
     var path = databasePath + '/database.db';
@@ -48,7 +47,6 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Pathsoft',
       theme: ThemeData(
-        fontFamily: 'Poppins',
         brightness: Brightness.light,
       ),
       home: home,

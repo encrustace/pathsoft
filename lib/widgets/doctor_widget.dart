@@ -43,15 +43,17 @@ class DoctorWidget extends StatelessWidget {
                   children: [
                     Text(
                       doctorId.toString(),
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     Divider(),
                     Text(
                       'Dr. ${doctorName.toString()}',
                       style: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],

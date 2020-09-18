@@ -521,7 +521,7 @@ class DataFieldWidget extends StatelessWidget {
           name,
           style: TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
           ),
         ),
         Text(

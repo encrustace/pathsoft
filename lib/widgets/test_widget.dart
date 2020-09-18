@@ -57,7 +57,8 @@ class TestWidget extends StatelessWidget {
                       testId.toString(),
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Divider(),
@@ -66,6 +67,7 @@ class TestWidget extends StatelessWidget {
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontSize: 16,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],

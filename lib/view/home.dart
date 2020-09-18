@@ -76,7 +76,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         child: Container(
                           padding: EdgeInsets.all(8),
                           height: 250,
-                          width: MediaQuery.of(context).size.width,
+                          width: 250,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.stretch,

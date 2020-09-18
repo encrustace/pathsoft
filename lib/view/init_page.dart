@@ -25,109 +25,116 @@ class _InitPageState extends State<InitPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue.withOpacity(0.8),
       appBar: AppBar(
         title: Text('Add pathology details'),
       ),
       body: Center(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(18.0),
-          child: Form(
-            key: formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                TextFormField(
-                  autofocus: false,
-                  controller: _pathOwner,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(FontAwesomeIcons.userMd),
-                    hintText: "Don't put 'Dr.' before name",
-                    labelText: 'Owner',
-                    hintStyle: TextStyle(color: Colors.black45),
-                    border: OutlineInputBorder(),
+        child: Container(
+          color: Colors.white.withOpacity(0.5),
+          width: 400,
+          padding: EdgeInsets.all(16),
+          margin: EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(18.0),
+            child: Form(
+              key: formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  TextFormField(
+                    autofocus: false,
+                    controller: _pathOwner,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(FontAwesomeIcons.userMd),
+                      hintText: "Don't put 'Dr.' before name",
+                      labelText: 'Owner',
+                      hintStyle: TextStyle(color: Colors.black45),
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (value) => value.isEmpty ? 'Required' : null,
                   ),
-                  validator: (value) => value.isEmpty ? 'Required' : null,
-                ),
-                SizedBox(
-                  height: 24.0,
-                ),
-                TextFormField(
-                  autofocus: false,
-                  controller: _pathMobile,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(FontAwesomeIcons.phone),
-                    hintText: "9999999999",
-                    labelText: 'Mobile',
-                    hintStyle: TextStyle(color: Colors.black45),
-                    border: OutlineInputBorder(),
+                  SizedBox(
+                    height: 24.0,
                   ),
-                  validator: (value) => value.isEmpty ? 'Required' : null,
-                ),
-                SizedBox(
-                  height: 24.0,
-                ),
-                TextFormField(
-                  autofocus: false,
-                  controller: _pathEmail,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(FontAwesomeIcons.mailBulk),
-                    hintText: "abc@example.com",
-                    labelText: 'Email',
-                    hintStyle: TextStyle(color: Colors.black45),
-                    border: OutlineInputBorder(),
+                  TextFormField(
+                    autofocus: false,
+                    controller: _pathMobile,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(FontAwesomeIcons.phone),
+                      hintText: "9999999999",
+                      labelText: 'Mobile',
+                      hintStyle: TextStyle(color: Colors.black45),
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (value) => value.isEmpty ? 'Required' : null,
                   ),
-                  validator: (value) => value.isEmpty ? 'Required' : null,
-                ),
-                SizedBox(
-                  height: 24.0,
-                ),
-                TextFormField(
-                  autofocus: false,
-                  controller: _pathName,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(FontAwesomeIcons.clinicMedical),
-                    border: OutlineInputBorder(),
-                    labelText: 'Title',
-                    hintText: 'Pathology name',
-                    hintStyle: TextStyle(color: Colors.black45),
+                  SizedBox(
+                    height: 24.0,
                   ),
-                  validator: (value) => value.isEmpty ? 'Required' : null,
-                ),
-                SizedBox(
-                  height: 24.0,
-                ),
-                TextFormField(
-                  autofocus: false,
-                  controller: _pathAddress,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(FontAwesomeIcons.home),
-                    border: OutlineInputBorder(),
-                    labelText: 'Address',
-                    hintText: 'Pathology address',
-                    hintStyle: TextStyle(color: Colors.black45),
+                  TextFormField(
+                    autofocus: false,
+                    controller: _pathEmail,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(FontAwesomeIcons.mailBulk),
+                      hintText: "abc@example.com",
+                      labelText: 'Email',
+                      hintStyle: TextStyle(color: Colors.black45),
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (value) => value.isEmpty ? 'Required' : null,
                   ),
-                  maxLines: null,
-                  validator: (value) => value.isEmpty ? 'Required' : null,
-                ),
-                SizedBox(
-                  height: 24.0,
-                ),
-                RaisedButton(
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(color: Colors.black),
+                  SizedBox(
+                    height: 24.0,
                   ),
-                  onPressed: () {
-                    createDatabase();
-                  },
-                ),
-              ],
+                  TextFormField(
+                    autofocus: false,
+                    controller: _pathName,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(FontAwesomeIcons.clinicMedical),
+                      border: OutlineInputBorder(),
+                      labelText: 'Title',
+                      hintText: 'Pathology name',
+                      hintStyle: TextStyle(color: Colors.black45),
+                    ),
+                    validator: (value) => value.isEmpty ? 'Required' : null,
+                  ),
+                  SizedBox(
+                    height: 24.0,
+                  ),
+                  TextFormField(
+                    autofocus: false,
+                    controller: _pathAddress,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(FontAwesomeIcons.home),
+                      border: OutlineInputBorder(),
+                      labelText: 'Address',
+                      hintText: 'Pathology address',
+                      hintStyle: TextStyle(color: Colors.black45),
+                    ),
+                    maxLines: null,
+                    validator: (value) => value.isEmpty ? 'Required' : null,
+                  ),
+                  SizedBox(
+                    height: 24.0,
+                  ),
+                  RaisedButton(
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onPressed: () {
+                      createDatabase();
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
