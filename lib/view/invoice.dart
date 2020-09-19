@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:io' as io;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:path_provider/path_provider.dart';
@@ -284,21 +285,39 @@ class _InvoiceState extends State<Invoice> {
       ),
     );
     Directory tempDir = await getDownloadsDirectory();
-    String tempPath = tempDir.path;
-    final file = File(tempPath +
-        '/' +
-        entryData.entryName +
-        '_invoice' +
-        entryData.entryId.toString() +
-        ".pdf");
-    await file.writeAsBytes(doc.save());
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      duration: Duration(seconds: 3),
-      content: Text(
-        'Invoice has been saved in Downloads folder!',
-        textAlign: TextAlign.center,
-      ),
-    ));
+    String tempPath = tempDir.path + '/Invoice';
+    if (await io.Directory(tempPath).exists()) {
+      final file = File(tempPath +
+          '/' +
+          entryData.entryName +
+          '_invoice' +
+          entryData.entryId.toString() +
+          ".pdf");
+      await file.writeAsBytes(doc.save());
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        duration: Duration(seconds: 3),
+        content: Text(
+          'Invoice has been saved in Downloads/Invoice folder!',
+          textAlign: TextAlign.center,
+        ),
+      ));
+    } else {
+      await io.Directory(tempPath).create();
+      final file = File(tempPath +
+          '/' +
+          entryData.entryName +
+          '_invoice' +
+          entryData.entryId.toString() +
+          ".pdf");
+      await file.writeAsBytes(doc.save());
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        duration: Duration(seconds: 3),
+        content: Text(
+          'Invoice has been saved in Downloads/Invoice folder!',
+          textAlign: TextAlign.center,
+        ),
+      ));
+    }
   }
 
   @override

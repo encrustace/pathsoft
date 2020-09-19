@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:io' as io;
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pathsoft/connection.dart';
@@ -245,21 +246,39 @@ class _ReportState extends State<Report> {
     );
 
     Directory tempDir = await getDownloadsDirectory();
-    String tempPath = tempDir.path;
-    final file = File(tempPath +
-        '/' +
-        entryData.entryName +
-        '_report' +
-        entryData.entryId.toString() +
-        ".pdf");
-    await file.writeAsBytes(doc.save());
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      duration: Duration(seconds: 3),
-      content: Text(
-        'Report has been saved in Downloads folder!',
-        textAlign: TextAlign.center,
-      ),
-    ));
+    String tempPath = tempDir.path + '/Report';
+    if (await io.Directory(tempPath).exists()) {
+      final file = File(tempPath +
+          '/' +
+          entryData.entryName +
+          '_report' +
+          entryData.entryId.toString() +
+          ".pdf");
+      await file.writeAsBytes(doc.save());
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        duration: Duration(seconds: 3),
+        content: Text(
+          'Report has been saved in Downloads folder!',
+          textAlign: TextAlign.center,
+        ),
+      ));
+    } else {
+      await io.Directory(tempPath).create();
+      final file = File(tempPath +
+          '/' +
+          entryData.entryName +
+          '_report' +
+          entryData.entryId.toString() +
+          ".pdf");
+      await file.writeAsBytes(doc.save());
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        duration: Duration(seconds: 3),
+        content: Text(
+          'Report has been saved in Downloads folder!',
+          textAlign: TextAlign.center,
+        ),
+      ));
+    }
   }
 
   @override
