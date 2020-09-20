@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:io' as io;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pathsoft/connection.dart';
 import 'package:pathsoft/model/doc_model.dart';
@@ -107,6 +108,9 @@ class _InvoiceState extends State<Invoice> {
     final doc = pw.Document();
     doc.addPage(
       pw.Page(
+        theme: pw.ThemeData.withFont(
+          base: pw.Font.ttf(await rootBundle.load("assets/NotoSans.ttf")),
+        ),
         build: (pw.Context context) => pw.Center(
           child: pw.Container(
             padding: pw.EdgeInsets.all(24.0),
@@ -212,7 +216,7 @@ class _InvoiceState extends State<Invoice> {
                                 ),
                                 pw.Expanded(
                                   child: pw.Text(
-                                    testPriceList[index].toString(),
+                                    "₹${testPriceList[index]}",
                                   ),
                                 ),
                               ],
@@ -242,7 +246,7 @@ class _InvoiceState extends State<Invoice> {
                           ),
                           pw.Expanded(
                             child: pw.Text(
-                              'Rs${entryData.entryPrice}',
+                              '₹${entryData.entryPrice}',
                             ),
                           ),
                         ],
@@ -270,7 +274,7 @@ class _InvoiceState extends State<Invoice> {
                           ),
                           pw.Expanded(
                             child: pw.Text(
-                              'Rs${entryData.entryPrice - entryData.entryPrice * entryData.entryDiscount / 100}',
+                              '₹${entryData.entryPrice - entryData.entryPrice * entryData.entryDiscount / 100}',
                             ),
                           ),
                         ],
@@ -430,7 +434,7 @@ class _InvoiceState extends State<Invoice> {
                                 ),
                                 Expanded(
                                   child: Text(
-                                    testPriceList[index].toString(),
+                                    "₹${testPriceList[index]}",
                                     style: TextStyle(color: Colors.black),
                                   ),
                                 ),

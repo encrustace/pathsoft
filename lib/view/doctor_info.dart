@@ -152,36 +152,36 @@ class _DoctorInfoState extends State<DoctorInfo> with TickerProviderStateMixin {
                         value: '${doctorShare.text}%',
                       ),
                       InkWell(
-                        onTap: (){
+                        onTap: () {
                           showDialog(
-                  context: context,
-                  builder: (BuildContext buildContext) {
-                    return AlertDialog(
-                      title: Center(
-                          child: Text(
-                        'Want to make all payment?',
-                      )),
-                      content: Text(
-                        'Total amount: $pendingAmount',
-                        textAlign: TextAlign.center,
-                      ),
-                      actions: <Widget>[
-                        FlatButton(
-                          onPressed: () {
-                            updateAllEntry();
-                          },
-                          child: Text('Yes'),
-                        ),
-                        FlatButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text('No'),
-                        ),
-                      ],
-                    );
-                  },
-                );
+                            context: context,
+                            builder: (BuildContext buildContext) {
+                              return AlertDialog(
+                                title: Center(
+                                    child: Text(
+                                  'Want to make all payment?',
+                                )),
+                                content: Text(
+                                  'Total amount: $pendingAmount',
+                                  textAlign: TextAlign.center,
+                                ),
+                                actions: <Widget>[
+                                  FlatButton(
+                                    onPressed: () {
+                                      updateAllEntry();
+                                    },
+                                    child: Text('Yes'),
+                                  ),
+                                  FlatButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('No'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         },
                         child: DataFieldWidget(
                           name: 'Pending amount',
@@ -299,7 +299,7 @@ class _DoctorInfoState extends State<DoctorInfo> with TickerProviderStateMixin {
                               entryDate: entry['entry_date'],
                               entryPrice: entry['entry_price'],
                               entryDiscount: entry['entry_discount'],
-                              entryShare: doctorShare.text,
+                              entryShare: entry['entry_share'],
                               entryDocStatus: entry['entry_doc_status'],
                               icon: FontAwesomeIcons.checkCircle,
                             );
