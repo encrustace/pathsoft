@@ -69,6 +69,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           IconButton(
               icon: Icon(FontAwesomeIcons.userCircle),
               onPressed: () async {
+                getPathData();
                 showDialog(
                     context: context,
                     builder: (BuildContext buildContext) {
