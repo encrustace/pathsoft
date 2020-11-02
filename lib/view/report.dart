@@ -19,7 +19,6 @@ class Report extends StatefulWidget {
 }
 
 class _ReportState extends State<Report> {
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController orgName = TextEditingController();
   TextEditingController orgAddress = TextEditingController();
   TextEditingController orgOwner = TextEditingController();
@@ -255,7 +254,7 @@ class _ReportState extends State<Report> {
           entryData.entryId.toString() +
           ".pdf");
       await file.writeAsBytes(doc.save());
-      _scaffoldKey.currentState.showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         duration: Duration(seconds: 3),
         content: Text(
           'Report has been saved in Downloads folder!',
@@ -271,7 +270,7 @@ class _ReportState extends State<Report> {
           entryData.entryId.toString() +
           ".pdf");
       await file.writeAsBytes(doc.save());
-      _scaffoldKey.currentState.showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         duration: Duration(seconds: 3),
         content: Text(
           'Report has been saved in Downloads folder!',
@@ -295,7 +294,6 @@ class _ReportState extends State<Report> {
       );
     } else {
       return Scaffold(
-        key: _scaffoldKey,
         appBar: AppBar(
           title: Text('Report'),
           actions: <Widget>[

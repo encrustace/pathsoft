@@ -21,7 +21,6 @@ class Invoice extends StatefulWidget {
 }
 
 class _InvoiceState extends State<Invoice> {
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController orgName = TextEditingController();
   TextEditingController orgAddress = TextEditingController();
   EntryModel entryData;
@@ -298,13 +297,15 @@ class _InvoiceState extends State<Invoice> {
           entryData.entryId.toString() +
           ".pdf");
       await file.writeAsBytes(doc.save());
-      _scaffoldKey.currentState.showSnackBar(SnackBar(
-        duration: Duration(seconds: 3),
-        content: Text(
-          'Invoice has been saved in Downloads/Invoice folder!',
-          textAlign: TextAlign.center,
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: Duration(seconds: 3),
+          content: Text(
+            'Invoice has been saved in Downloads/Invoice folder!',
+            textAlign: TextAlign.center,
+          ),
         ),
-      ));
+      );
     } else {
       await io.Directory(tempPath).create();
       final file = File(tempPath +
@@ -314,13 +315,15 @@ class _InvoiceState extends State<Invoice> {
           entryData.entryId.toString() +
           ".pdf");
       await file.writeAsBytes(doc.save());
-      _scaffoldKey.currentState.showSnackBar(SnackBar(
-        duration: Duration(seconds: 3),
-        content: Text(
-          'Invoice has been saved in Downloads/Invoice folder!',
-          textAlign: TextAlign.center,
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: Duration(seconds: 3),
+          content: Text(
+            'Invoice has been saved in Downloads/Invoice folder!',
+            textAlign: TextAlign.center,
+          ),
         ),
-      ));
+      );
     }
   }
 
@@ -338,7 +341,6 @@ class _InvoiceState extends State<Invoice> {
       );
     } else {
       return Scaffold(
-        key: _scaffoldKey,
         appBar: AppBar(
           title: Text(
             'Invoice',

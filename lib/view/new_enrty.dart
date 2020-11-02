@@ -12,7 +12,6 @@ class NewEntry extends StatefulWidget {
 }
 
 class _NewEntryState extends State<NewEntry> {
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _entryName = TextEditingController();
   TextEditingController _entryAge = TextEditingController();
@@ -38,7 +37,6 @@ class _NewEntryState extends State<NewEntry> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         title: Text('New Enrty'),
       ),
@@ -265,21 +263,25 @@ class _NewEntryState extends State<NewEntry> {
           onPressed: () {
             if (!_formKey.currentState.validate()) {
             } else if (selectedDoc == null) {
-              _scaffoldKey.currentState.showSnackBar(SnackBar(
-                duration: Duration(seconds: 1),
-                content: Text(
-                  'Please select doctor!',
-                  textAlign: TextAlign.center,
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  duration: Duration(seconds: 1),
+                  content: Text(
+                    'Please select doctor!',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ));
+              );
             } else if (selectedTestId.isEmpty) {
-              _scaffoldKey.currentState.showSnackBar(SnackBar(
-                duration: Duration(seconds: 1),
-                content: Text(
-                  'Please select atleast one test!',
-                  textAlign: TextAlign.center,
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  duration: Duration(seconds: 1),
+                  content: Text(
+                    'Please select atleast one test!',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ));
+              );
             } else {
               saveEntryData();
             }
