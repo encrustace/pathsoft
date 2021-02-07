@@ -19,9 +19,9 @@ class _NewEntryState extends State<NewEntry> {
   TextEditingController _entryAddress = TextEditingController();
   TextEditingController _entryDiscount = TextEditingController();
 
-  List<DoctorModel> doctList = List();
-  List<TestModel> testList = List();
-  List<int> selectedTestId = List();
+  List<DoctorModel> doctList = [];
+  List<TestModel> testList = [];
+  List<int> selectedTestId = [];
   int selectedDoc;
   int entryShare = 0;
   int totalPrice = 0;

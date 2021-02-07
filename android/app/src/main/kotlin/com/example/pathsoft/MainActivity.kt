@@ -1,4 +1,4 @@
-package com.encrustace.pathsoft
+package com.example.pathsoft
 
 import io.flutter.embedding.android.FlutterActivity
 

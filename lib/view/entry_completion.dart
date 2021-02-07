@@ -17,10 +17,10 @@ class EntryCompletion extends StatefulWidget {
 class _EntryCompletionState extends State<EntryCompletion> {
   final _formKey = GlobalKey<FormState>();
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  List<EntryItemModel> entryItemList = List();
-  List<String> testNameList = List();
-  List<String> testUnitList = List();
-  List<int> testIdList = List();
+  List<EntryItemModel> entryItemList = [];
+  List<String> testNameList = [];
+  List<String> testUnitList = [];
+  List<int> testIdList = [];
   List<TextEditingController> editContList;
 
   getEntryItems() async {

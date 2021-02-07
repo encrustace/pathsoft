@@ -124,7 +124,7 @@ class _InitPageState extends State<InitPage> {
                   SizedBox(
                     height: 24.0,
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text(
                       'Submit',
                       style: TextStyle(color: Colors.black),

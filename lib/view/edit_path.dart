@@ -143,7 +143,7 @@ class _EditPathState extends State<EditPath> {
                   SizedBox(
                     height: 24.0,
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text(
                       'Update',
                       style: TextStyle(color: Colors.black),

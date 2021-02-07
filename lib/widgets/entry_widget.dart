@@ -152,13 +152,13 @@ class _EntryWidgetState extends State<EntryWidget> {
                             textAlign: TextAlign.center,
                           ),
                           actions: <Widget>[
-                            FlatButton(
+                            TextButton(
                               onPressed: () {
                                 deleteEntry();
                               },
                               child: Text('Yes'),
                             ),
-                            FlatButton(
+                            TextButton(
                               onPressed: () {
                                 Navigator.pop(context);
                               },

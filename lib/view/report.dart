@@ -24,10 +24,10 @@ class _ReportState extends State<Report> {
   TextEditingController orgOwner = TextEditingController();
   EntryModel entryData;
   DoctorModel docData;
-  List<EntryItemModel> entryItemList = List();
-  List<String> testNameList = List();
-  List<String> testUnitList = List();
-  List<String> testRangeList = List();
+  List<EntryItemModel> entryItemList = [];
+  List<String> testNameList = [];
+  List<String> testUnitList = [];
+  List<String> testRangeList = [];
 
   Future<void> getOrgData() async {
     List<Map> list = await database.rawQuery('''SELECT * FROM pathology''');
@@ -253,7 +253,7 @@ class _ReportState extends State<Report> {
           '_report' +
           entryData.entryId.toString() +
           ".pdf");
-      await file.writeAsBytes(doc.save());
+      await file.writeAsBytes(await doc.save());
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         duration: Duration(seconds: 3),
         content: Text(
@@ -269,7 +269,7 @@ class _ReportState extends State<Report> {
           '_report' +
           entryData.entryId.toString() +
           ".pdf");
-      await file.writeAsBytes(doc.save());
+      await file.writeAsBytes(await doc.save());
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         duration: Duration(seconds: 3),
         content: Text(

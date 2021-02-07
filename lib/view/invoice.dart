@@ -25,9 +25,9 @@ class _InvoiceState extends State<Invoice> {
   TextEditingController orgAddress = TextEditingController();
   EntryModel entryData;
   DoctorModel docData;
-  List<EntryItemModel> entryItemList = List();
-  List<String> testNameList = List();
-  List<int> testPriceList = List();
+  List<EntryItemModel> entryItemList = [];
+  List<String> testNameList = [];
+  List<int> testPriceList = [];
 
   Future<void> getOrgData() async {
     List<Map> list = await database.rawQuery('''SELECT * FROM pathology''');
@@ -296,7 +296,7 @@ class _InvoiceState extends State<Invoice> {
           '_invoice' +
           entryData.entryId.toString() +
           ".pdf");
-      await file.writeAsBytes(doc.save());
+      await file.writeAsBytes(await doc.save());
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),
@@ -314,7 +314,7 @@ class _InvoiceState extends State<Invoice> {
           '_invoice' +
           entryData.entryId.toString() +
           ".pdf");
-      await file.writeAsBytes(doc.save());
+      await file.writeAsBytes(await doc.save());
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),

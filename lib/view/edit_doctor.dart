@@ -229,7 +229,7 @@ class _EditDoctorState extends State<EditDoctor> {
                 SizedBox(
                   height: 24.0,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text(
                     'Update',
                     style: TextStyle(color: Colors.black),

@@ -133,7 +133,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                               Expanded(
                                 child: Container(),
                               ),
-                              RaisedButton(
+                              ElevatedButton(
                                 onPressed: () {
                                   Navigator.push(
                                     context,

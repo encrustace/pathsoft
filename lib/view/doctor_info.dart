@@ -166,13 +166,13 @@ class _DoctorInfoState extends State<DoctorInfo> with TickerProviderStateMixin {
                                   textAlign: TextAlign.center,
                                 ),
                                 actions: <Widget>[
-                                  FlatButton(
+                                  TextButton(
                                     onPressed: () {
                                       updateAllEntry();
                                     },
                                     child: Text('Yes'),
                                   ),
-                                  FlatButton(
+                                  TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
@@ -453,13 +453,13 @@ class _DocRefsWidgetState extends State<DocRefsWidget> {
                         textAlign: TextAlign.center,
                       ),
                       actions: <Widget>[
-                        FlatButton(
+                        TextButton(
                           onPressed: () {
                             updateEntry();
                           },
                           child: Text('Yes'),
                         ),
-                        FlatButton(
+                        TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
@@ -479,7 +479,7 @@ class _DocRefsWidgetState extends State<DocRefsWidget> {
                         'Already paid!',
                       )),
                       actions: <Widget>[
-                        FlatButton(
+                        TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },

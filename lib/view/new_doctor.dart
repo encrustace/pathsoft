@@ -204,7 +204,7 @@ class _NewDoctorState extends State<NewDoctor> {
                 SizedBox(
                   height: 24.0,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text(
                     'Register',
                     style: TextStyle(color: Colors.black),
