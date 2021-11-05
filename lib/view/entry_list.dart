@@ -93,6 +93,12 @@ class _EntryListState extends State<EntryList> {
               )
             ],
           ),
+          Row(
+            children: <Widget>[
+              Expanded(child: Center(child: Text("Pending"))),
+              Expanded(child: Center(child: Text("Completed"))),
+            ],
+          ),
           Expanded(
             child: Row(
               children: [
