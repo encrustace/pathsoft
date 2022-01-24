@@ -33,6 +33,7 @@ class _ReportState extends State<Report> {
     List<Map> list = await database.rawQuery('''SELECT * FROM pathology''');
     orgName.text = list[0]['path_name'];
     orgAddress.text = list[0]['path_address'];
+    orgOwner.text = list[0]['path_owner'];
     setState(() {});
     getEntryData();
   }
@@ -159,14 +160,9 @@ class _ReportState extends State<Report> {
                       children: <pw.Widget>[
                         pw.Expanded(
                           child: pw.Text(
-                            'Test performed by:',
+                            'Test Performed by Dr.: ${orgOwner.text}',
                           ),
-                        ),
-                        pw.Expanded(
-                          child: pw.Text(
-                            'Dr. ${orgOwner.text}',
-                          ),
-                        ),
+                        )
                       ],
                     ),
                   ],
